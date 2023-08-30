@@ -156,7 +156,7 @@ ALIASES
   $ backendcraft-cli plugins add
 
 EXAMPLES
-  $ backendcraft-cli plugins:install myplugin 
+  $ backendcraft-cli plugins:install myplugin
 
   $ backendcraft-cli plugins:install https://github.com/someuser/someplugin
 
@@ -221,7 +221,7 @@ ALIASES
   $ backendcraft-cli plugins add
 
 EXAMPLES
-  $ backendcraft-cli plugins:install myplugin 
+  $ backendcraft-cli plugins:install myplugin
 
   $ backendcraft-cli plugins:install https://github.com/someuser/someplugin
 
