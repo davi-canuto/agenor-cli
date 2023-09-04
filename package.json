@@ -4,7 +4,7 @@
   "description": "cli for backendcraft portifolio project",
   "author": "davi-canuto @davi-canuto",
   "bin": {
-    "backendcraft-cli": "./bin/run"
+    "backendcraft": "./bin/run"
   },
   "homepage": "https://github.com/davi-canuto/backendcraft-cli",
   "license": "MIT",
@@ -19,11 +19,14 @@
   "dependencies": {
     "@oclif/core": "^2",
     "@oclif/plugin-help": "^5",
-    "@oclif/plugin-plugins": "^3.2.0"
+    "@oclif/plugin-plugins": "^3.2.0",
+    "fs": "^0.0.1-security",
+    "js-yaml": "^4.1.0"
   },
   "devDependencies": {
     "@oclif/test": "^2.4.4",
     "@types/chai": "^4",
+    "@types/js-yaml": "^4.0.5",
     "@types/mocha": "^9.0.0",
     "@types/node": "^16.18.40",
     "chai": "^4",
@@ -38,8 +41,8 @@
     "typescript": "^4.9.5"
   },
   "oclif": {
-    "bin": "backendcraft-cli",
-    "dirname": "backendcraft-cli",
+    "bin": "backendcraft",
+    "dirname": "backendcraft",
     "commands": "./dist/commands",
     "plugins": [
       "@oclif/plugin-help",
