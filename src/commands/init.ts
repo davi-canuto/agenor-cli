@@ -19,11 +19,11 @@ export default class Init extends Command {
       choices: [
         {
           name: 'Yes',
-          value: 'yes'
+          value: true
         },
         {
           name: 'No',
-          value: 'no',
+          value: false,
         },
       ],
     });
