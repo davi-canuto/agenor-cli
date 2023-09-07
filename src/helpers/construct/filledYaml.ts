@@ -3,61 +3,67 @@ import {
   Project,
   Experience,
   PersonalInfo,
-  Stack,
+  Tech,
   Skill,
-  Education,
+  AcademicInfo,
   Language,
-  Certificate
 } from '../../interfaces/index';
 
-import * as yaml from 'js-yaml'
+import * as yaml from 'js-yaml';
 
-export default function filledYaml(): any {
+export default function fillJohnDoeData(): any {
   const personalInfo: PersonalInfo = {
-    name: 'John Doe',
-    jobPosition: 'Full-stack Developer',
-    about: 'I am a passionate developer with a love for creating web and mobile applications.',
+    firstName: 'John',
+    lastName: 'Doe',
+    birthdate: '01/01/1985',
+    occupation: 'Software Developer',
+    goals: 'To develop innovative web applications',
+    biography: 'I am a software developer passionate about creating digital solutions.',
+    about: 'I have over 10 years of experience in web development and am always eager to learn new technologies.',
   };
 
-  const stack: Stack = {
-    name: 'Node.js, React, TypeScript',
+  const tech: Tech = {
+    name: 'JavaScript',
   };
 
   const skill: Skill = {
-    name: 'Problem Solving',
-    description: 'I have a strong problem-solving mindset and enjoy tackling complex challenges.',
+    name: 'Communication',
+    isSoftSkill: true,
+    description: 'Ability to communicate ideas clearly and effectively.',
   };
 
-  const education: Education = {
-    name: 'Computer Science Degree',
-    collegeName: 'Tech University',
-    startAt: new Date('2015-09-01'),
-    description: 'Graduated with honors and specialized in web development.',
+  const academicInfo: AcademicInfo = {
+    name: 'Bachelor of Computer Science',
+    description: 'Graduated with honors',
+    certificateUrl: 'https://example.com/certificate',
+    startAt: '01/09/2005',
+    endAt: '30/06/2009',
   };
 
   const language: Language = {
-    name: 'Spanish',
+    name: 'English',
     level: 'Fluent',
   };
 
-  const certificate: Certificate = {
-    name: 'Advanced Web Development',
-    description: 'Certified in advanced web development techniques and technologies.',
-    url: 'https://www.example.com/certificate',
-  };
-
   const experience: Experience = {
-    name: 'ABC Tech Solutions',
-    jobPosition: 'Senior Software Engineer',
-    startAt: new Date('2018-03-15'),
-    description: 'Led a team of developers in building innovative web applications.',
+    name: 'Software Co.',
+    companyName: 'ABC Corporation',
+    companyDescription: 'A leading software company',
+    companyUrl: 'https://www.abc-corp.com',
+    jobPosition: 'Senior Web Developer',
+    workDescription: 'Developed web applications using cutting-edge technologies.',
+    startAt: '01/07/2015',
+    endAt: '30/06/2020',
   };
 
   const project: Project = {
     name: 'E-commerce Website',
-    description: 'Built a feature-rich e-commerce platform using the latest technologies.',
-    startAt: '2022-01-01',
-    stacks: [stack],
+    description: 'Built a fully functional e-commerce website with online payment integration.',
+    startAt: '01/08/2018',
+    endAt: '30/12/2018',
+    techs: [tech],
+    url: 'https://www.example-ecommerce.com',
+    isPrivate: false,
   };
 
   const portfolioConfig: PortfolioConfig = {
@@ -65,8 +71,7 @@ export default function filledYaml(): any {
     projects: [project],
     experiences: [experience],
     skills: [skill],
-    educations: [education],
-    certificates: [certificate],
+    academicInfos: [academicInfo],
     languages: [language],
   };
 

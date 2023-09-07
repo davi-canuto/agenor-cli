@@ -3,8 +3,7 @@ export interface PortfolioConfig {
   projects: Project[];
   experiences: Experience[];
   skills: Skill[];
-  educations: Education[];
-  certificates: Certificate[]
+  academicInfos: AcademicInfo[];
   languages: Language[]
 }
 
@@ -12,49 +11,63 @@ export interface Project {
   name: string;
   description: string;
   startAt: string;
-  stacks: Stack[];
+  techs: Tech[];
   endAt?: string;
   url?: string;
+  isPrivate?: boolean;
 }
 
 export interface Experience{
   name: string;
+  companyName: string;
+  companyDescription?: string;
+  companyUrl?: string;
   jobPosition: string;
-  startAt: Date;
-  endAt?: Date;
-  description?: string;
+  workDescription?: string;
+  startAt: string;
+  endAt?: string;
 }
 
 export interface PersonalInfo{
-  name: string;
-  jobPosition: string;
+  firstName: string;
+  lastName: string;
+  birthdate: string;
+  occupation: String;
+  goals: String;
+  biography: String;
   about: string;
 }
 
-export interface Stack{
+export interface SocialMedia{
+  githubUsername: String;
+  githubUrl: string;
+  instargramUsername?: String;
+  instargramUrl?: string;
+  twitterUsername?: String;
+  twitterUrl?: string;
+  linkedinUsername?: String;
+  linkedinUrl?: string;
+}
+
+export interface Tech{
   name: string;
 }
 
 export interface Skill{
   name: string;
+  isSoftSkill: boolean;
   description?: string;
 }
 
-export interface Education{
+export interface AcademicInfo{
   name: string;
-  collegeName: string;
-  startAt: Date;
   description?: string;
-  endAt?: Date;
+  certificateUrl?: string;
+  startAt: string;
+  endAt?: string;
 }
 
 export interface Language{
   name: string;
   level: string;
-}
-
-export interface Certificate{
-  name: string;
-  description: string;
-  url: string;
 }

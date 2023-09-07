@@ -9,4 +9,5 @@
 /tmp
 /yarn.lock
 node_modules
+index.yml
 oclif.manifest.json
