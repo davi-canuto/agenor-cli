@@ -36,9 +36,6 @@ export interface PersonalInfo{
   goals: String;
   biography: String;
   about: string;
-}
-
-export interface SocialMedia{
   githubUsername: String;
   githubUrl: string;
   instargramUsername?: String;

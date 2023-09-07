@@ -20,6 +20,14 @@ export default function fillJohnDoeData(): any {
     goals: 'To develop innovative web applications',
     biography: 'I am a software developer passionate about creating digital solutions.',
     about: 'I have over 10 years of experience in web development and am always eager to learn new technologies.',
+    githubUsername: 'john-doe',
+    githubUrl: 'https://github.com/john-doe',
+    instargramUsername: '',
+    instargramUrl: '',
+    twitterUsername: '',
+    twitterUrl: '',
+    linkedinUsername: '',
+    linkedinUrl: '',
   };
 
   const tech: Tech = {

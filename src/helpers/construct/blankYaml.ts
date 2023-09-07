@@ -20,6 +20,14 @@ export default function blankYaml(): any {
     goals: '',
     biography: '',
     about: '',
+    githubUsername: '',
+    githubUrl: '',
+    instargramUsername: '',
+    instargramUrl: '',
+    twitterUsername: '',
+    twitterUrl: '',
+    linkedinUsername: '',
+    linkedinUrl: '',
   };
 
   const tech: Tech = {
