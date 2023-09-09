@@ -7,7 +7,7 @@ import {
   Skill,
   AcademicInfo,
   Language,
-} from '../../interfaces/index';
+} from '../../interfaces/index'
 
 import * as yaml from 'js-yaml'
 
@@ -28,17 +28,17 @@ export default function blankYaml(): any {
     twitterUrl: '',
     linkedinUsername: '',
     linkedinUrl: '',
-  };
+  }
 
   const tech: Tech = {
     name: '',
-  };
+  }
 
   const skill: Skill = {
     name: '',
     isSoftSkill: false,
     description: '',
-  };
+  }
 
   const academicInfo: AcademicInfo = {
     name: '',
@@ -46,12 +46,12 @@ export default function blankYaml(): any {
     certificateUrl: '',
     startAt: 'date format is `DD/MM/YYYY`',
     endAt: 'date format is `DD/MM/YYYY`',
-  };
+  }
 
   const language: Language = {
     name: '',
     level: '',
-  };
+  }
 
   const experience: Experience = {
     name: '',
@@ -62,7 +62,7 @@ export default function blankYaml(): any {
     workDescription: '',
     startAt: 'date format is `DD/MM/YYYY`',
     endAt: 'date format is `DD/MM/YYYY`',
-  };
+  }
 
   const project: Project = {
     name: '',
@@ -72,7 +72,7 @@ export default function blankYaml(): any {
     techs: [tech],
     url: '',
     isPrivate: true,
-  };
+  }
 
   const portfolioConfig: PortfolioConfig = {
     personalInfo,
@@ -81,7 +81,7 @@ export default function blankYaml(): any {
     skills: [skill],
     academicInfos: [academicInfo],
     languages: [language],
-  };
+  }
 
-  return yaml.dump(portfolioConfig);
+  return yaml.dump(portfolioConfig)
 }
