@@ -1,4 +1,5 @@
 import constructYaml from '../helpers/construct-yaml'
+import { portifolioContext } from '../variables/portifolio-context'
 import { Command, Flags } from '@oclif/core'
 import select from '@inquirer/select'
 import { exec } from 'node:child_process'

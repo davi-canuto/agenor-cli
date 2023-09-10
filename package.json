@@ -18,6 +18,7 @@
   ],
   "dependencies": {
     "@inquirer/select": "^1.2.9",
+    "@oclif/command": "^1.8.36",
     "@oclif/core": "^2",
     "@oclif/plugin-help": "^5",
     "@oclif/plugin-plugins": "^3.2.0",
@@ -48,6 +49,11 @@
     "bin": "backendcraft",
     "dirname": "backendcraft",
     "commands": "./dist/commands",
+    "hooks": {
+      "init": [
+        "./src/hooks/init/portifolio"
+      ]
+    },
     "plugins": [
       "@oclif/plugin-help",
       "@oclif/plugin-plugins"
