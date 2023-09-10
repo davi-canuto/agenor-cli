@@ -1,4 +1,4 @@
-import constructYaml from '../helpers/constructYaml'
+import constructYaml from '../helpers/construct-yaml'
 import { Command, Flags } from '@oclif/core'
 import select from '@inquirer/select'
 import { exec } from 'node:child_process'

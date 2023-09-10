@@ -1,6 +1,6 @@
 import { Command, Flags } from '@oclif/core'
 import { exec } from 'node:child_process'
-import getYamlJson from '../helpers/getYamlJson'
+import getYamlJson from '../helpers/get-yaml-json'
 export default class Preview extends Command {
   static description = 'Preview portofilio by your YML.'
 
