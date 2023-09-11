@@ -51,7 +51,7 @@
     "commands": "./dist/commands",
     "hooks": {
       "init": [
-        "./src/hooks/init/portifolio"
+        "./src/hooks/init/index"
       ]
     },
     "plugins": [

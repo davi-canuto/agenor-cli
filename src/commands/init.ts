@@ -1,8 +1,7 @@
 import constructYaml from '../helpers/construct-yaml'
-import { portifolioContext } from '../variables/portifolio-context'
-import { Command, Flags } from '@oclif/core'
+import {Command, Flags} from '@oclif/core'
 import select from '@inquirer/select'
-import { exec } from 'node:child_process'
+import {exec} from 'node:child_process'
 import * as fs from 'node:fs'
 export default class Init extends Command {
   static description = 'Init YML form to create portifolio.'
@@ -31,12 +30,12 @@ export default class Init extends Command {
 
     const yamlData = constructYaml(withExamples)
 
-    const { flags } = await this.parse(Init)
+    const {flags} = await this.parse(Init)
 
     fs.writeFileSync('./index.yml', yamlData, 'utf8')
 
     if (flags.code) {
-      exec('code ./index.yml', (error) => {
+      exec('code ./index.yml', error => {
         if (error) {
           this.log(
             'Error in open with code, Your yml is it`s at your ./index.yml.',
