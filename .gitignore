@@ -10,6 +10,7 @@
 /yarn.lock
 node_modules
 index.yml
+index.json
 oclif.manifest.json
 
 # local env files
