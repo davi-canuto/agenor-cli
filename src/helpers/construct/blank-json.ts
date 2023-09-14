@@ -9,9 +9,7 @@ import {
   Language,
 } from '../../interfaces/index'
 
-import * as yaml from 'js-yaml'
-
-export default function blankYaml(): any {
+export default function blankYaml(): string {
   const personalInfo: PersonalInfo = {
     firstName: '',
     lastName: '',
@@ -83,5 +81,5 @@ export default function blankYaml(): any {
     languages: [language],
   }
 
-  return yaml.dump(portfolioConfig)
+  return JSON.stringify(portfolioConfig, null, 2)
 }

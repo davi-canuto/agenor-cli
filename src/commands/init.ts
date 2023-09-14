@@ -1,7 +1,7 @@
-import constructYaml from '../helpers/construct-yaml'
-import {Command, Flags} from '@oclif/core'
+import constructJson from '../helpers/construct-json'
+import { Command, Flags } from '@oclif/core'
 import select from '@inquirer/select'
-import {exec} from 'node:child_process'
+import { exec } from 'node:child_process'
 import * as fs from 'node:fs'
 export default class Init extends Command {
   static description = 'Init YML form to create portifolio.'
@@ -28,22 +28,16 @@ export default class Init extends Command {
       ],
     })
 
-    const yamlData = constructYaml(withExamples)
+    const jsonData = constructJson(withExamples)
 
-    const {flags} = await this.parse(Init)
+    const { flags } = await this.parse(Init)
 
-    fs.writeFileSync('./index.yml', yamlData, 'utf8')
+    fs.writeFileSync('./index.json', jsonData, 'utf8')
 
     if (flags.code) {
-      exec('code ./index.yml', error => {
-        if (error) {
-          this.log(
-            'Error in open with code, Your yml is it`s at your ./index.yml.',
-          )
-        }
-      })
+      exec('code ./index.json')
     } else {
-      this.log('Your yml is it`s at your ./index.yml.')
+      this.log('Your yml is it`s at your ./index.json.')
     }
   }
 }

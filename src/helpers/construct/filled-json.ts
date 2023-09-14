@@ -9,9 +9,7 @@ import {
   Language,
 } from '../../interfaces/index'
 
-import * as yaml from 'js-yaml'
-
-export default function fillJohnDoeData(): any {
+export default function filledJson(): string {
   const personalInfo: PersonalInfo = {
     firstName: 'John',
     lastName: 'Doe',
@@ -87,5 +85,5 @@ export default function fillJohnDoeData(): any {
     languages: [language],
   }
 
-  return yaml.dump(portfolioConfig)
+  return JSON.stringify(portfolioConfig, null, 2)
 }
