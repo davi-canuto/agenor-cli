@@ -32,12 +32,12 @@ export default class Init extends Command {
 
     const { flags } = await this.parse(Init)
 
-    fs.writeFileSync('./index.json', jsonData, 'utf8')
+    fs.writeFileSync('./form.json', jsonData, 'utf8')
 
     if (flags.code) {
-      exec('code ./index.json')
+      exec('code ./form.json')
     } else {
-      this.log('Your yml is it`s at your ./index.json.')
+      this.log('Your yml is it`s at your ./form.json.')
     }
   }
 }

@@ -49,11 +49,6 @@
     "bin": "backendcraft",
     "dirname": "backendcraft",
     "commands": "./dist/commands",
-    "hooks": {
-      "init": [
-        "./src/hooks/init/index"
-      ]
-    },
     "plugins": [
       "@oclif/plugin-help",
       "@oclif/plugin-plugins"

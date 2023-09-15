@@ -6,7 +6,7 @@ export default class Preview extends Command {
 
   async run(): Promise<void> {
     try {
-      const jsonData = fs.readFileSync('./index.json', 'utf8')
+      const jsonData = fs.readFileSync('./form.json', 'utf8')
 
       const response: any = await Api.post(
         '/api/portifolio',
@@ -18,9 +18,15 @@ export default class Preview extends Command {
       }
 
       const data = response.data
-      const portifolioId = data._id
-      this.portifolioId = portifolioId
-      console.log(portifolioId)
+
+      // encode
+      const buff = Buffer.from(data._id)
+
+      fs.writeFileSync('./id.txt', buff.toString('base64'), 'utf8')
+
+      // decode example
+      // let buff = Buffer.from(str, 'base64')
+      // let text = buff.toString('ascii')
     } catch (error) {
       console.log(error)
       throw new Error('error in create portifolio')
