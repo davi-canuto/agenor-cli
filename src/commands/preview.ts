@@ -19,6 +19,7 @@ export default class Preview extends Command {
 
       const data = response.data
       const portifolioId = data._id
+      this.portifolioId = portifolioId
       console.log(portifolioId)
     } catch (error) {
       console.log(error)
