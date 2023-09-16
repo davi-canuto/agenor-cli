@@ -28,11 +28,12 @@ export default class Api {
     }
   }
 
-  static async post<T>(uri: string, data: any): Promise<T> {
+  static async post<T>(uri: string, data: any, headers: any): Promise<T> {
     try {
       const response: AxiosResponse<T> = await this.createInstance().post(
         uri,
         data,
+        { headers },
       )
       return this.respondWith<T>(response)
     } catch (error) {
@@ -41,11 +42,12 @@ export default class Api {
     }
   }
 
-  static async put<T>(uri: string, data: any): Promise<T> {
+  static async put<T>(uri: string, data: any, headers: any): Promise<T> {
     try {
       const response: AxiosResponse<T> = await this.createInstance().put(
         uri,
         data,
+        { headers },
       )
       return this.respondWith<T>(response)
     } catch (error) {
@@ -54,9 +56,12 @@ export default class Api {
     }
   }
 
-  static async delete<T>(uri: string): Promise<T> {
+  static async delete<T>(uri: string, headers: any): Promise<T> {
     try {
-      const response: AxiosResponse<T> = await this.createInstance().delete(uri)
+      const response: AxiosResponse<T> = await this.createInstance().delete(
+        uri,
+        { headers },
+      )
       return this.respondWith<T>(response)
     } catch (error) {
       console.log(error)

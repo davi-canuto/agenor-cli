@@ -7,10 +7,14 @@ export default class Preview extends Command {
   async run(): Promise<void> {
     try {
       const jsonData = fs.readFileSync('./form.json', 'utf8')
+      const headers = {
+        preview: true,
+      }
 
       const response: any = await Api.post(
         '/api/portifolio',
         JSON.parse(jsonData),
+        headers,
       ).then((response: any) => response)
 
       if (!response.success) {
