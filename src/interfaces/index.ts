@@ -1,5 +1,19 @@
 export interface PortfolioConfig {
-  personalInfo: PersonalInfo
+  firstName: string
+  lastName: string
+  birthdate: string
+  occupation: string
+  goals: string
+  biography: string
+  about: string
+  githubUsername: string
+  githubUrl: string
+  instargramUsername?: string
+  instargramUrl?: string
+  twitterUsername?: string
+  twitterUrl?: string
+  linkedinUsername?: string
+  linkedinUrl?: string
   projects: Project[]
   experiences: Experience[]
   skills: Skill[]
@@ -26,24 +40,6 @@ export interface Experience {
   workDescription?: string
   startAt: string
   endAt?: string
-}
-
-export interface PersonalInfo {
-  firstName: string
-  lastName: string
-  birthdate: string
-  occupation: string
-  goals: string
-  biography: string
-  about: string
-  githubUsername: string
-  githubUrl: string
-  instargramUsername?: string
-  instargramUrl?: string
-  twitterUsername?: string
-  twitterUrl?: string
-  linkedinUsername?: string
-  linkedinUrl?: string
 }
 
 export interface Tech {

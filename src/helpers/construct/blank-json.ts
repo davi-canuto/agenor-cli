@@ -2,7 +2,6 @@ import {
   PortfolioConfig,
   Project,
   Experience,
-  PersonalInfo,
   Tech,
   Skill,
   AcademicInfo,
@@ -10,24 +9,6 @@ import {
 } from '../../interfaces/index'
 
 export default function blankYaml(): string {
-  const personalInfo: PersonalInfo = {
-    firstName: '',
-    lastName: '',
-    birthdate: 'date format is `DD/MM/YYYY`',
-    occupation: '',
-    goals: '',
-    biography: '',
-    about: '',
-    githubUsername: '',
-    githubUrl: '',
-    instargramUsername: '',
-    instargramUrl: '',
-    twitterUsername: '',
-    twitterUrl: '',
-    linkedinUsername: '',
-    linkedinUrl: '',
-  }
-
   const tech: Tech = {
     name: '',
   }
@@ -73,7 +54,21 @@ export default function blankYaml(): string {
   }
 
   const portfolioConfig: PortfolioConfig = {
-    personalInfo,
+    firstName: '',
+    lastName: '',
+    birthdate: 'date format is `DD/MM/YYYY`',
+    occupation: '',
+    goals: '',
+    biography: '',
+    about: '',
+    githubUsername: '',
+    githubUrl: '',
+    instargramUsername: '',
+    instargramUrl: '',
+    twitterUsername: '',
+    twitterUrl: '',
+    linkedinUsername: '',
+    linkedinUrl: '',
     projects: [project],
     experiences: [experience],
     skills: [skill],

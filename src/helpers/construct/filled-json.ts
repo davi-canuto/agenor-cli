@@ -2,7 +2,6 @@ import {
   PortfolioConfig,
   Project,
   Experience,
-  PersonalInfo,
   Tech,
   Skill,
   AcademicInfo,
@@ -10,26 +9,6 @@ import {
 } from '../../interfaces/index'
 
 export default function filledJson(): string {
-  const personalInfo: PersonalInfo = {
-    firstName: 'John',
-    lastName: 'Doe',
-    birthdate: '01/01/1985',
-    occupation: 'Software Developer',
-    goals: 'To develop innovative web applications',
-    biography:
-      'I am a software developer passionate about creating digital solutions.',
-    about:
-      'I have over 10 years of experience in web development and am always eager to learn new technologies.',
-    githubUsername: 'john-doe',
-    githubUrl: 'https://github.com/john-doe',
-    instargramUsername: '',
-    instargramUrl: '',
-    twitterUsername: '',
-    twitterUrl: '',
-    linkedinUsername: '',
-    linkedinUrl: '',
-  }
-
   const tech: Tech = {
     name: 'JavaScript',
   }
@@ -77,7 +56,23 @@ export default function filledJson(): string {
   }
 
   const portfolioConfig: PortfolioConfig = {
-    personalInfo,
+    firstName: 'John',
+    lastName: 'Doe',
+    birthdate: '01/01/1985',
+    occupation: 'Software Developer',
+    goals: 'To develop innovative web applications',
+    biography:
+      'I am a software developer passionate about creating digital solutions.',
+    about:
+      'I have over 10 years of experience in web development and am always eager to learn new technologies.',
+    githubUsername: 'john-doe',
+    githubUrl: 'https://github.com/john-doe',
+    instargramUsername: '',
+    instargramUrl: '',
+    twitterUsername: '',
+    twitterUrl: '',
+    linkedinUsername: '',
+    linkedinUrl: '',
     projects: [project],
     experiences: [experience],
     skills: [skill],
