@@ -10,12 +10,24 @@ export default class Preview extends Command {
       const headers = {
         preview: true,
       }
+      const existingBuffer = fs.readFileSync('./id.txt')
+      let response
 
-      const response: any = await Api.post(
-        '/api/portifolio',
-        JSON.parse(jsonData),
-        headers,
-      ).then((response: any) => response)
+      if (existingBuffer) {
+        const decryptedId = Buffer.from(existingBuffer).toString('ascii')
+
+        response = await Api.put(
+          `/api/portifolio/${decryptedId}`,
+          JSON.parse(jsonData),
+          headers,
+        ).then((res: any) => res)
+      } else {
+        response = await Api.post(
+          '/api/portifolio',
+          JSON.parse(jsonData),
+          headers,
+        ).then((res: any) => res)
+      }
 
       if (!response.success) {
         throw new Error('error in request')
@@ -23,14 +35,9 @@ export default class Preview extends Command {
 
       const data = response.data
 
-      // encode
       const buff = Buffer.from(data._id)
 
       fs.writeFileSync('./id.txt', buff.toString('base64'), 'utf8')
-
-      // decode example
-      // let buff = Buffer.from(str, 'base64')
-      // let text = buff.toString('ascii')
     } catch (error) {
       console.log(error)
       throw new Error('error in create portifolio')
