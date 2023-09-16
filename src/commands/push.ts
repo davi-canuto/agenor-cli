@@ -1,17 +1,20 @@
 import { Command } from '@oclif/core'
 import Api from '../lib/api'
 import * as fs from 'node:fs'
-export default class Preview extends Command {
-  static description = 'Preview portofilio by your JSON.'
+
+export default class Push extends Command {
+  static description = 'Push your current JSON to create portifolio.'
 
   async run(): Promise<void> {
     try {
       const jsonData = fs.readFileSync('./form.json', 'utf8')
       const headers = {
-        preview: true,
+        preview: false,
       }
       const existingBuffer = fs.readFileSync('./id.txt')
       let response
+
+      // MISSING WORKS WITHS USER SECRET
 
       if (existingBuffer) {
         const decryptedId = Buffer.from(existingBuffer).toString('ascii')
