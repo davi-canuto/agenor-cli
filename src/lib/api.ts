@@ -18,9 +18,11 @@ export default class Api {
     return this.instance
   }
 
-  static async get<T>(uri: string): Promise<T> {
+  static async get<T>(uri: string, headers: any): Promise<T> {
     try {
-      const response: AxiosResponse<T> = await this.createInstance().get(uri)
+      const response: AxiosResponse<T> = await this.createInstance().get(uri, {
+        headers,
+      })
       return this.respondWith<T>(response)
     } catch (error) {
       console.log(error)
