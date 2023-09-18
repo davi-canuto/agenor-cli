@@ -1,15 +1,15 @@
 {
-  "name": "backendcraft-cli",
+  "name": "regina-cli",
   "version": "1.0.0",
-  "description": "cli for backendcraft portifolio project",
+  "description": "cli for regina portifolio project",
   "author": "davi-canuto @davi-canuto",
   "bin": {
-    "backendcraft": "./bin/run"
+    "regina": "./bin/run"
   },
-  "homepage": "https://github.com/davi-canuto/backendcraft-cli",
+  "homepage": "https://github.com/davi-canuto/regina-cli",
   "license": "MIT",
   "main": "dist/index.js",
-  "repository": "davi-canuto/backendcraft-cli",
+  "repository": "davi-canuto/regina-cli",
   "files": [
     "/bin",
     "/dist",
@@ -46,18 +46,11 @@
     "typescript": "^4.9.5"
   },
   "oclif": {
-    "bin": "backendcraft",
-    "dirname": "backendcraft",
+    "bin": "regina",
+    "dirname": "regina",
     "commands": "./dist/commands",
-    "plugins": [
-      "@oclif/plugin-help",
-      "@oclif/plugin-plugins"
-    ],
     "topicSeparator": " ",
     "topics": {
-      "hello": {
-        "description": "Say hello to the world and others"
-      }
     }
   },
   "scripts": {
@@ -74,7 +67,7 @@
   "engines": {
     "node": ">=12.0.0"
   },
-  "bugs": "https://github.com/davi-canuto/backendcraft-cli/issues",
+  "bugs": "https://github.com/davi-canuto/regina-cli/issues",
   "keywords": [
     "oclif"
   ],
