@@ -2,6 +2,7 @@ import { Command } from '@oclif/core'
 import Api from '../lib/api'
 import getBuffer from '../helpers/get-buffer'
 import * as fs from 'node:fs'
+import * as path from 'node:path'
 export default class Preview extends Command {
   static description = 'View your portfolio by current JSON.'
 
@@ -44,8 +45,12 @@ export default class Preview extends Command {
 
         const data = response.data
 
+        const currentDirectory = process.cwd()
+
+        const idTxtPath = path.join(currentDirectory, 'id.txt')
+
         fs.writeFileSync(
-          './id.txt',
+          idTxtPath,
           Buffer.from(data._id).toString('base64'),
           'utf8',
         )

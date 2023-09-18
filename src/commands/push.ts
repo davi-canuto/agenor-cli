@@ -2,6 +2,7 @@ import { Command, ux } from '@oclif/core'
 import Api from '../lib/api'
 import getBuffer from '../helpers/get-buffer'
 import * as fs from 'node:fs'
+import * as path from 'node:path'
 
 export default class Push extends Command {
   static description = 'Push your current JSON to create portifolio.'
@@ -72,9 +73,12 @@ export default class Push extends Command {
       }
 
       const data = response.data
+      const currentDirectory = process.cwd()
+
+      const idTxtPath = path.join(currentDirectory, 'id.txt')
 
       fs.writeFileSync(
-        './id.txt',
+        idTxtPath,
         Buffer.from(data._id).toString('base64'),
         'utf8',
       )
