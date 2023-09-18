@@ -13,22 +13,31 @@ export default class Push extends Command {
       const headers = {
         preview: 'false',
       }
-      const existingBuffer = getBuffer()
+      const existingBuffer = getBuffer(true)
       let response
 
-      if (existingBuffer) {
-        const decryptedId = Buffer.from(existingBuffer, 'base64').toString(
-          'utf8',
-        )
+      const havePortifolio = await ux.confirm('You have a portifolio? (yes/no)')
 
-        const portifolio = await Push.getPortifolio(decryptedId, headers)
+      if (existingBuffer || havePortifolio) {
+        let portifolio
+        if (existingBuffer) {
+          const decryptedId = Buffer.from(existingBuffer, 'base64').toString(
+            'utf8',
+          )
 
-        if (portifolio.data) {
+          portifolio = await Push.getPortifolio(decryptedId, headers, null)
           const inputedSecret = await ux.prompt('What is your secret?')
+
           if (inputedSecret.trim() !== portifolio.data.userSecret.trim()) {
             throw new Error('inputed secret is differ of portifolio secret')
           }
+        } else {
+          const inputedSecret = await ux.prompt('What is your secret?')
 
+          portifolio = await Push.getPortifolio(null, headers, inputedSecret)
+        }
+
+        if (portifolio.data) {
           const confirmUpdate = await ux.confirm(
             'Do you want to update your current portifolio? (yes/no)',
           )
@@ -39,7 +48,7 @@ export default class Push extends Command {
           }
 
           response = await Api.put(
-            `/api/portifolio/${decryptedId}`,
+            `/api/portifolio/${portifolio.data._id}`,
             JSON.parse(jsonData),
             headers,
           ).then((res: any) => res)
@@ -51,6 +60,8 @@ export default class Push extends Command {
           this.log('Your portifolio is successfullly updated')
           return
         }
+
+        throw new Error('Portifolio not found')
       }
 
       const confirmCreate = await ux.confirm(
@@ -93,11 +104,19 @@ export default class Push extends Command {
     }
   }
 
-  static async getPortifolio(portifolioId: any, headers: any) {
-    const portifolio = await Api.get(
-      `/api/portifolio/${portifolioId}`,
-      headers,
-    ).then((res: any) => res)
+  static async getPortifolio(portifolioId: any, headers: any, secret: any) {
+    let portifolio
+    if (secret) {
+      headers.secret = secret
+      portifolio = await Api.get('/api/portifolio/', headers).then(
+        (res: any) => res,
+      )
+    } else {
+      portifolio = await Api.get(
+        `/api/portifolio/${portifolioId}`,
+        headers,
+      ).then((res: any) => res)
+    }
 
     return portifolio
   }

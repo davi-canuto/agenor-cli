@@ -12,7 +12,7 @@ export default class Preview extends Command {
       const headers = {
         preview: true,
       }
-      const existingBuffer = getBuffer()
+      const existingBuffer = getBuffer(false)
 
       let response
 
@@ -47,7 +47,7 @@ export default class Preview extends Command {
 
         const currentDirectory = process.cwd()
 
-        const idTxtPath = path.join(currentDirectory, 'id.txt')
+        const idTxtPath = path.join(currentDirectory, 'preview-id.txt')
 
         fs.writeFileSync(
           idTxtPath,
