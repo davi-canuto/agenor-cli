@@ -5,16 +5,14 @@
 [![GitHub license](https://img.shields.io/github/license/oclif/hello-world)](https://github.com/oclif/hello-world/blob/main/LICENSE)
 
 <!-- toc -->
-
-- [Regina CLI](#regina-cli)
-- [Usage](#usage)
-- [Commands](#commands)
+* [Regina CLI](#regina-cli)
+* [Usage](#usage)
+* [Commands](#commands)
 <!-- tocstop -->
 
 # Usage
 
 <!-- usage -->
-
 ```sh-session
 $ npm install -g regina-cli
 $ regina COMMAND
@@ -26,16 +24,14 @@ USAGE
   $ regina COMMAND
 ...
 ```
-
 <!-- usagestop -->
 
 # Commands
 
 <!-- commands -->
-
-- [`regina init`](#regina-init)
-- [`regina preview`](#regina-preview)
-- [`regina push`](#regina-push)
+* [`regina init`](#regina-init)
+* [`regina preview`](#regina-preview)
+* [`regina push`](#regina-push)
 
 ## `regina init`
 
@@ -81,5 +77,4 @@ DESCRIPTION
 ```
 
 _See code: [dist/commands/push.ts](https://github.com/davi-canuto/regina-cli/blob/v1.0.0/dist/commands/push.ts)_
-
 <!-- commandsstop -->

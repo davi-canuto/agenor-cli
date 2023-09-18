@@ -1,7 +1,7 @@
 {
   "name": "regina-cli",
   "version": "1.0.0",
-  "description": "cli for regina portifolio project",
+  "description": "Regina CLI for creating portifolios to backend developers.",
   "author": "davi-canuto @davi-canuto",
   "bin": {
     "regina": "./bin/run"
