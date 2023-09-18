@@ -11,6 +11,7 @@
 node_modules
 index.yml
 id.txt
+preview-id.txt
 index.json
 form.json
 oclif.manifest.json
