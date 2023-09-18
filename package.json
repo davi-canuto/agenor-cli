@@ -1,6 +1,6 @@
 {
   "name": "regina-cli",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "Regina CLI for creating portifolios to backend developers.",
   "author": "davi-canuto @davi-canuto",
   "bin": {
@@ -59,17 +59,21 @@
     "postpack": "shx rm -f oclif.manifest.json",
     "posttest": "npm run lint",
     "build": "shx rm -rf dist && tsc -b",
-    "prepack": "npm run build && oclif manifest && oclif readme",
+    "prepack": "npm run build && oclif manifest",
     "test": "mocha --forbid-only \"test/**/*.test.ts\"",
     "format": "prettier --write 'src/**/*.ts'",
-    "version": "oclif readme && git add README.md"
   },
   "engines": {
     "node": ">=12.0.0"
   },
   "bugs": "https://github.com/davi-canuto/regina-cli/issues",
   "keywords": [
-    "oclif"
+    "oclif",
+    "portifolio",
+    "regina",
+    "developer",
+    "back-end",
+    "backend"
   ],
   "types": "dist/index.d.ts"
 }
