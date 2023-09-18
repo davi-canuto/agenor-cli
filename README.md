@@ -15,80 +15,39 @@ oclif example Hello World CLI
 <!-- usage -->
 ```sh-session
 $ npm install -g backendcraft-cli
-$ backendcraft-cli COMMAND
+$ backendcraft COMMAND
 running command...
-$ backendcraft-cli (--version)
+$ backendcraft (--version)
 backendcraft-cli/0.0.0 linux-x64 node-v16.16.0
-$ backendcraft-cli --help [COMMAND]
+$ backendcraft --help [COMMAND]
 USAGE
-  $ backendcraft-cli COMMAND
+  $ backendcraft COMMAND
 ...
 ```
 <!-- usagestop -->
 # Commands
 <!-- commands -->
-* [`backendcraft-cli hello PERSON`](#backendcraft-cli-hello-person)
-* [`backendcraft-cli hello world`](#backendcraft-cli-hello-world)
-* [`backendcraft-cli help [COMMANDS]`](#backendcraft-cli-help-commands)
-* [`backendcraft-cli plugins`](#backendcraft-cli-plugins)
-* [`backendcraft-cli plugins:install PLUGIN...`](#backendcraft-cli-pluginsinstall-plugin)
-* [`backendcraft-cli plugins:inspect PLUGIN...`](#backendcraft-cli-pluginsinspect-plugin)
-* [`backendcraft-cli plugins:install PLUGIN...`](#backendcraft-cli-pluginsinstall-plugin-1)
-* [`backendcraft-cli plugins:link PLUGIN`](#backendcraft-cli-pluginslink-plugin)
-* [`backendcraft-cli plugins:uninstall PLUGIN...`](#backendcraft-cli-pluginsuninstall-plugin)
-* [`backendcraft-cli plugins:uninstall PLUGIN...`](#backendcraft-cli-pluginsuninstall-plugin-1)
-* [`backendcraft-cli plugins:uninstall PLUGIN...`](#backendcraft-cli-pluginsuninstall-plugin-2)
-* [`backendcraft-cli plugins update`](#backendcraft-cli-plugins-update)
+* [`backendcraft help [COMMANDS]`](#backendcraft-help-commands)
+* [`backendcraft init`](#backendcraft-init)
+* [`backendcraft plugins`](#backendcraft-plugins)
+* [`backendcraft plugins:install PLUGIN...`](#backendcraft-pluginsinstall-plugin)
+* [`backendcraft plugins:inspect PLUGIN...`](#backendcraft-pluginsinspect-plugin)
+* [`backendcraft plugins:install PLUGIN...`](#backendcraft-pluginsinstall-plugin-1)
+* [`backendcraft plugins:link PLUGIN`](#backendcraft-pluginslink-plugin)
+* [`backendcraft plugins:uninstall PLUGIN...`](#backendcraft-pluginsuninstall-plugin)
+* [`backendcraft plugins:uninstall PLUGIN...`](#backendcraft-pluginsuninstall-plugin-1)
+* [`backendcraft plugins:uninstall PLUGIN...`](#backendcraft-pluginsuninstall-plugin-2)
+* [`backendcraft plugins update`](#backendcraft-plugins-update)
+* [`backendcraft preview`](#backendcraft-preview)
+* [`backendcraft push`](#backendcraft-push)
 
-## `backendcraft-cli hello PERSON`
+## `backendcraft help [COMMANDS]`
 
-Say hello
-
-```
-USAGE
-  $ backendcraft-cli hello PERSON -f <value>
-
-ARGUMENTS
-  PERSON  Person to say hello to
-
-FLAGS
-  -f, --from=<value>  (required) Who is saying hello
-
-DESCRIPTION
-  Say hello
-
-EXAMPLES
-  $ oex hello friend --from oclif
-  hello friend from oclif! (./src/commands/hello/index.ts)
-```
-
-_See code: [dist/commands/hello/index.ts](https://github.com/davi-canuto/backendcraft-cli/blob/v0.0.0/dist/commands/hello/index.ts)_
-
-## `backendcraft-cli hello world`
-
-Say hello world
+Display help for backendcraft.
 
 ```
 USAGE
-  $ backendcraft-cli hello world
-
-DESCRIPTION
-  Say hello world
-
-EXAMPLES
-  $ backendcraft-cli hello world
-  hello world! (./src/commands/hello/world.ts)
-```
-
-_See code: [dist/commands/hello/world.ts](https://github.com/davi-canuto/backendcraft-cli/blob/v0.0.0/dist/commands/hello/world.ts)_
-
-## `backendcraft-cli help [COMMANDS]`
-
-Display help for backendcraft-cli.
-
-```
-USAGE
-  $ backendcraft-cli help [COMMANDS] [-n]
+  $ backendcraft help [COMMANDS] [-n]
 
 ARGUMENTS
   COMMANDS  Command to show help for.
@@ -97,18 +56,35 @@ FLAGS
   -n, --nested-commands  Include all nested commands in the output.
 
 DESCRIPTION
-  Display help for backendcraft-cli.
+  Display help for backendcraft.
 ```
 
-_See code: [@oclif/plugin-help](https://github.com/oclif/plugin-help/blob/v5.2.16/src/commands/help.ts)_
+_See code: [@oclif/plugin-help](https://github.com/oclif/plugin-help/blob/v5.2.19/src/commands/help.ts)_
 
-## `backendcraft-cli plugins`
+## `backendcraft init`
+
+Init YML form to create portifolio.
+
+```
+USAGE
+  $ backendcraft init [--code]
+
+FLAGS
+  --code  Open YAML file with Visual Studio Code
+
+DESCRIPTION
+  Init YML form to create portifolio.
+```
+
+_See code: [dist/commands/init.ts](https://github.com/davi-canuto/backendcraft-cli/blob/v0.0.0/dist/commands/init.ts)_
+
+## `backendcraft plugins`
 
 List installed plugins.
 
 ```
 USAGE
-  $ backendcraft-cli plugins [--json] [--core]
+  $ backendcraft plugins [--json] [--core]
 
 FLAGS
   --core  Show core plugins.
@@ -120,18 +96,18 @@ DESCRIPTION
   List installed plugins.
 
 EXAMPLES
-  $ backendcraft-cli plugins
+  $ backendcraft plugins
 ```
 
-_See code: [@oclif/plugin-plugins](https://github.com/oclif/plugin-plugins/blob/v3.2.5/src/commands/plugins/index.ts)_
+_See code: [@oclif/plugin-plugins](https://github.com/oclif/plugin-plugins/blob/v3.4.0/src/commands/plugins/index.ts)_
 
-## `backendcraft-cli plugins:install PLUGIN...`
+## `backendcraft plugins:install PLUGIN...`
 
 Installs a plugin into the CLI.
 
 ```
 USAGE
-  $ backendcraft-cli plugins:install PLUGIN...
+  $ backendcraft plugins:install PLUGIN...
 
 ARGUMENTS
   PLUGIN  Plugin to install.
@@ -153,23 +129,23 @@ DESCRIPTION
 
 
 ALIASES
-  $ backendcraft-cli plugins add
+  $ backendcraft plugins add
 
 EXAMPLES
-  $ backendcraft-cli plugins:install myplugin
+  $ backendcraft plugins:install myplugin 
 
-  $ backendcraft-cli plugins:install https://github.com/someuser/someplugin
+  $ backendcraft plugins:install https://github.com/someuser/someplugin
 
-  $ backendcraft-cli plugins:install someuser/someplugin
+  $ backendcraft plugins:install someuser/someplugin
 ```
 
-## `backendcraft-cli plugins:inspect PLUGIN...`
+## `backendcraft plugins:inspect PLUGIN...`
 
 Displays installation properties of a plugin.
 
 ```
 USAGE
-  $ backendcraft-cli plugins:inspect PLUGIN...
+  $ backendcraft plugins:inspect PLUGIN...
 
 ARGUMENTS
   PLUGIN  [default: .] Plugin to inspect.
@@ -185,18 +161,18 @@ DESCRIPTION
   Displays installation properties of a plugin.
 
 EXAMPLES
-  $ backendcraft-cli plugins:inspect myplugin
+  $ backendcraft plugins:inspect myplugin
 ```
 
-_See code: [@oclif/plugin-plugins](https://github.com/oclif/plugin-plugins/blob/v3.2.5/src/commands/plugins/inspect.ts)_
+_See code: [@oclif/plugin-plugins](https://github.com/oclif/plugin-plugins/blob/v3.4.0/src/commands/plugins/inspect.ts)_
 
-## `backendcraft-cli plugins:install PLUGIN...`
+## `backendcraft plugins:install PLUGIN...`
 
 Installs a plugin into the CLI.
 
 ```
 USAGE
-  $ backendcraft-cli plugins:install PLUGIN...
+  $ backendcraft plugins:install PLUGIN...
 
 ARGUMENTS
   PLUGIN  Plugin to install.
@@ -218,25 +194,25 @@ DESCRIPTION
 
 
 ALIASES
-  $ backendcraft-cli plugins add
+  $ backendcraft plugins add
 
 EXAMPLES
-  $ backendcraft-cli plugins:install myplugin
+  $ backendcraft plugins:install myplugin 
 
-  $ backendcraft-cli plugins:install https://github.com/someuser/someplugin
+  $ backendcraft plugins:install https://github.com/someuser/someplugin
 
-  $ backendcraft-cli plugins:install someuser/someplugin
+  $ backendcraft plugins:install someuser/someplugin
 ```
 
-_See code: [@oclif/plugin-plugins](https://github.com/oclif/plugin-plugins/blob/v3.2.5/src/commands/plugins/install.ts)_
+_See code: [@oclif/plugin-plugins](https://github.com/oclif/plugin-plugins/blob/v3.4.0/src/commands/plugins/install.ts)_
 
-## `backendcraft-cli plugins:link PLUGIN`
+## `backendcraft plugins:link PLUGIN`
 
 Links a plugin into the CLI for development.
 
 ```
 USAGE
-  $ backendcraft-cli plugins:link PLUGIN
+  $ backendcraft plugins:link PLUGIN
 
 ARGUMENTS
   PATH  [default: .] path to plugin
@@ -254,18 +230,18 @@ DESCRIPTION
 
 
 EXAMPLES
-  $ backendcraft-cli plugins:link myplugin
+  $ backendcraft plugins:link myplugin
 ```
 
-_See code: [@oclif/plugin-plugins](https://github.com/oclif/plugin-plugins/blob/v3.2.5/src/commands/plugins/link.ts)_
+_See code: [@oclif/plugin-plugins](https://github.com/oclif/plugin-plugins/blob/v3.4.0/src/commands/plugins/link.ts)_
 
-## `backendcraft-cli plugins:uninstall PLUGIN...`
+## `backendcraft plugins:uninstall PLUGIN...`
 
 Removes a plugin from the CLI.
 
 ```
 USAGE
-  $ backendcraft-cli plugins:uninstall PLUGIN...
+  $ backendcraft plugins:uninstall PLUGIN...
 
 ARGUMENTS
   PLUGIN  plugin to uninstall
@@ -278,17 +254,17 @@ DESCRIPTION
   Removes a plugin from the CLI.
 
 ALIASES
-  $ backendcraft-cli plugins unlink
-  $ backendcraft-cli plugins remove
+  $ backendcraft plugins unlink
+  $ backendcraft plugins remove
 ```
 
-## `backendcraft-cli plugins:uninstall PLUGIN...`
+## `backendcraft plugins:uninstall PLUGIN...`
 
 Removes a plugin from the CLI.
 
 ```
 USAGE
-  $ backendcraft-cli plugins:uninstall PLUGIN...
+  $ backendcraft plugins:uninstall PLUGIN...
 
 ARGUMENTS
   PLUGIN  plugin to uninstall
@@ -301,19 +277,19 @@ DESCRIPTION
   Removes a plugin from the CLI.
 
 ALIASES
-  $ backendcraft-cli plugins unlink
-  $ backendcraft-cli plugins remove
+  $ backendcraft plugins unlink
+  $ backendcraft plugins remove
 ```
 
-_See code: [@oclif/plugin-plugins](https://github.com/oclif/plugin-plugins/blob/v3.2.5/src/commands/plugins/uninstall.ts)_
+_See code: [@oclif/plugin-plugins](https://github.com/oclif/plugin-plugins/blob/v3.4.0/src/commands/plugins/uninstall.ts)_
 
-## `backendcraft-cli plugins:uninstall PLUGIN...`
+## `backendcraft plugins:uninstall PLUGIN...`
 
 Removes a plugin from the CLI.
 
 ```
 USAGE
-  $ backendcraft-cli plugins:uninstall PLUGIN...
+  $ backendcraft plugins:uninstall PLUGIN...
 
 ARGUMENTS
   PLUGIN  plugin to uninstall
@@ -326,17 +302,17 @@ DESCRIPTION
   Removes a plugin from the CLI.
 
 ALIASES
-  $ backendcraft-cli plugins unlink
-  $ backendcraft-cli plugins remove
+  $ backendcraft plugins unlink
+  $ backendcraft plugins remove
 ```
 
-## `backendcraft-cli plugins update`
+## `backendcraft plugins update`
 
 Update installed plugins.
 
 ```
 USAGE
-  $ backendcraft-cli plugins update [-h] [-v]
+  $ backendcraft plugins update [-h] [-v]
 
 FLAGS
   -h, --help     Show CLI help.
@@ -346,5 +322,33 @@ DESCRIPTION
   Update installed plugins.
 ```
 
-_See code: [@oclif/plugin-plugins](https://github.com/oclif/plugin-plugins/blob/v3.2.5/src/commands/plugins/update.ts)_
+_See code: [@oclif/plugin-plugins](https://github.com/oclif/plugin-plugins/blob/v3.4.0/src/commands/plugins/update.ts)_
+
+## `backendcraft preview`
+
+Preview portofilio by your JSON.
+
+```
+USAGE
+  $ backendcraft preview
+
+DESCRIPTION
+  Preview portofilio by your JSON.
+```
+
+_See code: [dist/commands/preview.ts](https://github.com/davi-canuto/backendcraft-cli/blob/v0.0.0/dist/commands/preview.ts)_
+
+## `backendcraft push`
+
+Push your current JSON to create portifolio.
+
+```
+USAGE
+  $ backendcraft push
+
+DESCRIPTION
+  Push your current JSON to create portifolio.
+```
+
+_See code: [dist/commands/push.ts](https://github.com/davi-canuto/backendcraft-cli/blob/v0.0.0/dist/commands/push.ts)_
 <!-- commandsstop -->
