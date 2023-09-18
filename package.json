@@ -1,6 +1,6 @@
 {
   "name": "backendcraft-cli",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "cli for backendcraft portifolio project",
   "author": "davi-canuto @davi-canuto",
   "bin": {

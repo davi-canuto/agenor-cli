@@ -3,7 +3,7 @@ import Api from '../lib/api'
 import getBuffer from '../helpers/get-buffer'
 import * as fs from 'node:fs'
 export default class Preview extends Command {
-  static description = 'Preview portofilio by your JSON.'
+  static description = 'View your portfolio by current JSON.'
 
   async run(): Promise<void> {
     try {
@@ -30,7 +30,7 @@ export default class Preview extends Command {
           throw new Error('error in request')
         }
 
-        this.log('your preview is successfully updated.')
+        this.log('Your preview is successfully updated.')
       } else {
         response = await Api.post(
           '/api/portifolio',

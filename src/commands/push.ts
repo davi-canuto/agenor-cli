@@ -28,6 +28,15 @@ export default class Push extends Command {
             throw new Error('inputed secret is differ of portifolio secret')
           }
 
+          const confirmUpdate = await ux.confirm(
+            'Do you want to update your current portifolio? (yes/no)',
+          )
+
+          if (!confirmUpdate) {
+            this.log('Update canceled.')
+            return
+          }
+
           response = await Api.put(
             `/api/portifolio/${decryptedId}`,
             JSON.parse(jsonData),
@@ -38,9 +47,18 @@ export default class Push extends Command {
             throw new Error('error in request')
           }
 
-          this.log('your portifolio is successfullly updated')
+          this.log('Your portifolio is successfullly updated')
           return
         }
+      }
+
+      const confirmCreate = await ux.confirm(
+        'Do you want to push a new portfolio? (yes/no)',
+      )
+
+      if (!confirmCreate) {
+        this.log('Push canceled.')
+        return
       }
 
       response = await Api.post(
@@ -62,9 +80,9 @@ export default class Push extends Command {
       )
 
       this.log(
-        'here is your secret, please keep guardin this. In future your need the secret for changes in your portifolio.',
+        'Here is your secret, please keep guardin this. In future your need the secret for changes in your portifolio.',
       )
-      this.log(data.userSecret)
+      this.log(`SECRET: ${data.userSecret}`)
     } catch (error) {
       console.log(error)
       throw new Error('error in create portifolio')

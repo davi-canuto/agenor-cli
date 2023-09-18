@@ -4,7 +4,7 @@ export default class Api {
   private static BASE_URL =
     process.env.NODE_ENV === 'development'
       ? 'http://localhost:3003'
-      : 'sample_url'
+      : 'http://localhost:3003'
 
   private static instance: AxiosInstance
 
