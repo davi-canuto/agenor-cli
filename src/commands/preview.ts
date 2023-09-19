@@ -10,7 +10,7 @@ export default class Preview extends Command {
   async run(): Promise<void> {
     try {
       const jsonData = fs.readFileSync('./form.json', 'utf8')
-      const existingBuffer = getBuffer(false)
+      const existingBuffer = getBuffer(true)
 
       let response
 

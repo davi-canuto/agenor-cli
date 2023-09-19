@@ -5,11 +5,7 @@ export default function getUrl(id: string, preview: boolean): any {
       : 'https://regina-web.vercel.app/'
 
   try {
-    let url = BASE_URL + `/${id}`
-
-    if (preview) {
-      url += '?preview=true'
-    }
+    const url = BASE_URL + `/${id}` + `?preview=${preview}`
 
     return url
   } catch {}
