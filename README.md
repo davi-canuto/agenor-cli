@@ -20,7 +20,7 @@ $ npm install -g regina-cli
 $ regina COMMAND
 running command...
 $ regina (--version)
-regina-cli/1.2.0 linux-x64 node-v16.16.0
+regina-cli/1.3.0 linux-x64 node-v16.16.0
 $ regina --help [COMMAND]
 USAGE
   $ regina COMMAND
@@ -52,7 +52,7 @@ DESCRIPTION
   Init JSON form to create your portifolio..
 ```
 
-_See code: [dist/commands/init.ts](https://github.com/davi-canuto/regina-cli/blob/v1.2.0/dist/commands/init.ts)_
+_See code: [dist/commands/init.ts](https://github.com/davi-canuto/regina-cli/blob/v1.3.0/dist/commands/init.ts)_
 
 ## `regina preview`
 
@@ -66,7 +66,7 @@ DESCRIPTION
   View your portfolio by current JSON.
 ```
 
-_See code: [dist/commands/preview.ts](https://github.com/davi-canuto/regina-cli/blob/v1.2.0/dist/commands/preview.ts)_
+_See code: [dist/commands/preview.ts](https://github.com/davi-canuto/regina-cli/blob/v1.3.0/dist/commands/preview.ts)_
 
 ## `regina push`
 
@@ -80,6 +80,6 @@ DESCRIPTION
   Push your current JSON to create portifolio.
 ```
 
-_See code: [dist/commands/push.ts](https://github.com/davi-canuto/regina-cli/blob/v1.2.0/dist/commands/push.ts)_
+_See code: [dist/commands/push.ts](https://github.com/davi-canuto/regina-cli/blob/v1.3.0/dist/commands/push.ts)_
 
 <!-- commandsstop -->
