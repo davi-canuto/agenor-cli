@@ -1,6 +1,7 @@
 import { Command, ux } from '@oclif/core'
 import Api from '../lib/api'
 import getBuffer from '../helpers/get-buffer'
+import getUrl from '../helpers/get-url'
 import * as fs from 'node:fs'
 import * as path from 'node:path'
 
@@ -10,10 +11,7 @@ export default class Push extends Command {
   async run(): Promise<void> {
     try {
       const jsonData = fs.readFileSync('./form.json', 'utf8')
-      const headers = {
-        preview: 'false',
-      }
-      const existingBuffer = getBuffer(true)
+      const existingBuffer = getBuffer(false)
       let response
 
       const havePortifolio = await ux.confirm('You have a portifolio? (yes/no)')
@@ -25,7 +23,7 @@ export default class Push extends Command {
             'utf8',
           )
 
-          portifolio = await Push.getPortifolio(decryptedId, headers, null)
+          portifolio = await Push.getPortifolio(decryptedId, null)
           const inputedSecret = await ux.prompt('What is your secret?')
 
           if (inputedSecret.trim() !== portifolio.data.userSecret.trim()) {
@@ -34,7 +32,7 @@ export default class Push extends Command {
         } else {
           const inputedSecret = await ux.prompt('What is your secret?')
 
-          portifolio = await Push.getPortifolio(null, headers, inputedSecret)
+          portifolio = await Push.getPortifolio(null, inputedSecret)
         }
 
         if (portifolio.data) {
@@ -48,9 +46,8 @@ export default class Push extends Command {
           }
 
           response = await Api.put(
-            `/api/portifolio/${portifolio.data._id}`,
+            `/api/portifolio/${portifolio.data._id}?preview=false`,
             JSON.parse(jsonData),
-            headers,
           ).then((res: any) => res)
 
           if (!response.success) {
@@ -58,6 +55,9 @@ export default class Push extends Command {
           }
 
           this.log('Your portifolio is successfullly updated')
+          this.log(' ')
+          const portifolioUrl = getUrl(portifolio?.data?._id, false)
+          this.log(`See results in ${portifolioUrl}`)
           return
         }
 
@@ -74,9 +74,8 @@ export default class Push extends Command {
       }
 
       response = await Api.post(
-        '/api/portifolio',
+        '/api/portifolio?preview=false',
         JSON.parse(jsonData),
-        headers,
       ).then((res: any) => res)
 
       if (!response.success) {
@@ -98,25 +97,23 @@ export default class Push extends Command {
         'Here is your secret, please keep guardin this. In future your need the secret for changes in your portifolio.',
       )
       this.log(`SECRET: ${data.userSecret}`)
+      this.log(' ')
+      const portifolioUrl = getUrl(data?._id, false)
+      this.log(`See results in ${portifolioUrl}`)
     } catch (error) {
       console.log(error)
       throw new Error('error in create portifolio')
     }
   }
 
-  static async getPortifolio(portifolioId: any, headers: any, secret: any) {
-    let portifolio
-    if (secret) {
-      headers.secret = secret
-      portifolio = await Api.get('/api/portifolio/', headers).then(
-        (res: any) => res,
-      )
-    } else {
-      portifolio = await Api.get(
-        `/api/portifolio/${portifolioId}`,
-        headers,
-      ).then((res: any) => res)
-    }
+  static async getPortifolio(portifolioId: any, secret: any) {
+    const portifolio = await (secret
+      ? Api.get(`/api/portifolio?preview=false&secret=${secret}`).then(
+          (res: any) => res,
+        )
+      : Api.get(`/api/portifolio/${portifolioId}?preview=false`).then(
+          (res: any) => res,
+        ))
 
     return portifolio
   }
