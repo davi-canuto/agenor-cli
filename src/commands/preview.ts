@@ -2,6 +2,7 @@ import { Command } from '@oclif/core'
 import Api from '../lib/api'
 import getBuffer from '../helpers/get-buffer'
 import getUrl from '../helpers/get-url'
+import cli from 'cli-ux'
 import * as fs from 'node:fs'
 import * as path from 'node:path'
 
@@ -23,9 +24,8 @@ export default class Preview extends Command {
         response = await this.createPortfolioPreview(jsonData)
       }
 
-      const portfolioUrl = getUrl(response.data?._id, true)
       this.log('Your preview is successfully updated/created.')
-      this.log(`See results in ${portfolioUrl}`)
+      cli.url('Click here to see result.', getUrl(response.data?._id, true))
     } catch (error) {
       console.error(error)
       throw new Error('Error in creating/updating portfolio')
