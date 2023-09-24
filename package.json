@@ -1,6 +1,6 @@
 {
   "name": "regina-cmd",
-  "version": "1.2.2",
+  "version": "1.0.1",
   "description": "Command Line Interface for create portifolios to backend developers.",
   "author": "davi-canuto @davi-canuto",
   "bin": {
@@ -50,15 +50,13 @@
     "dirname": "regina",
     "commands": "./dist/commands",
     "topicSeparator": " ",
-    "topics": {
-    }
+    "topics": {}
   },
   "scripts": {
     "build": "shx rm -rf dist && tsc -b",
     "lint": "eslint . --ext .ts --config .eslintrc",
     "postpack": "shx rm -f oclif.manifest.json",
     "posttest": "npm run lint",
-    "build": "shx rm -rf dist && tsc -b",
     "prepack": "npm run build && oclif manifest",
     "test": "mocha --forbid-only \"test/**/*.test.ts\"",
     "format": "prettier --write 'src/**/*.ts'"
