@@ -1,7 +1,7 @@
 {
-  "name": "regina",
+  "name": "regina-cmd",
   "version": "1.2.2",
-  "description": "Regina CLI for creating portifolios to backend developers.",
+  "description": "Command Line Interface for create portifolios to backend developers.",
   "author": "davi-canuto @davi-canuto",
   "bin": {
     "regina": "./bin/run"
