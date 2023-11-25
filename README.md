@@ -1,4 +1,4 @@
-# Regina
+# Agenor
 
 [![oclif](https://img.shields.io/badge/cli-oclif-brightgreen.svg)](https://oclif.io)
 [![CircleCI](https://circleci.com/gh/oclif/hello-world/tree/main.svg?style=shield)](https://circleci.com/gh/oclif/hello-world/tree/main)
@@ -15,14 +15,14 @@
 <!-- usage -->
 
 ```sh-session
-$ npm install -g regina-cmd
-$ regina COMMAND
+$ npm install -g agenor-cli
+$ agenor COMMAND
 running command...
-$ regina (--version)
-regina-cmd/1.2.1 linux-x64 node-v16.16.0
-$ regina --help [COMMAND]
+$ agenor (--version)
+agenor-cli/1.2.1 linux-x64 node-v16.16.0
+$ agenor --help [COMMAND]
 USAGE
-  $ regina COMMAND
+  $ agenor COMMAND
 ...
 ```
 
@@ -32,17 +32,17 @@ USAGE
 
 <!-- commands -->
 
-- [`regina init`](#regina-init)
-- [`regina preview`](#regina-preview)
-- [`regina push`](#regina-push)
+- [`agenor init`](#agenor-init)
+- [`agenor preview`](#agenor-preview)
+- [`agenor push`](#agenor-push)
 
-## `regina init`
+## `agenor init`
 
 Init JSON form to create your portifolio..
 
 ```
 USAGE
-  $ regina init [--code]
+  $ agenor init [--code]
 
 FLAGS
   --code  Open JSON directory with Visual Studio Code
@@ -51,34 +51,34 @@ DESCRIPTION
   Init JSON form to create your portifolio..
 ```
 
-_See code: [dist/commands/init.ts](https://github.com/davi-canuto/regina-cmd/blob/v1.2.1/dist/commands/init.ts)_
+_See code: [dist/commands/init.ts](https://github.com/davi-canuto/agenor-cli/blob/v1.2.1/dist/commands/init.ts)_
 
-## `regina preview`
+## `agenor preview`
 
 View your portfolio by current JSON.
 
 ```
 USAGE
-  $ regina preview
+  $ agenor preview
 
 DESCRIPTION
   View your portfolio by current JSON.
 ```
 
-_See code: [dist/commands/preview.ts](https://github.com/davi-canuto/regina-cmd/blob/v1.2.1/dist/commands/preview.ts)_
+_See code: [dist/commands/preview.ts](https://github.com/davi-canuto/agenor-cli/blob/v1.2.1/dist/commands/preview.ts)_
 
-## `regina push`
+## `agenor push`
 
 Push your current JSON to create portifolio.
 
 ```
 USAGE
-  $ regina push
+  $ agenor push
 
 DESCRIPTION
   Push your current JSON to create portifolio.
 ```
 
-_See code: [dist/commands/push.ts](https://github.com/davi-canuto/regina-cmd/blob/v1.2.1/dist/commands/push.ts)_
+_See code: [dist/commands/push.ts](https://github.com/davi-canuto/agenor-cli/blob/v1.2.1/dist/commands/push.ts)_
 
 <!-- commandsstop -->

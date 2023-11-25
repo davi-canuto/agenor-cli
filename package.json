@@ -1,15 +1,15 @@
 {
-  "name": "regina-cmd",
-  "version": "1.0.1",
-  "description": "Command Line Interface for create portifolios to backend developers.",
+  "name": "agenor",
+  "version": "1.3.0",
+  "description": "Agenor CLI for creating portifolios to backend developers.",
   "author": "davi-canuto @davi-canuto",
   "bin": {
-    "regina": "./bin/run"
+    "agenor": "./bin/run"
   },
-  "homepage": "https://github.com/davi-canuto/regina-cli",
+  "homepage": "https://github.com/davi-canuto/agenor-cli",
   "license": "MIT",
   "main": "dist/index.js",
-  "repository": "davi-canuto/regina-cli",
+  "repository": "davi-canuto/agenor-cli",
   "files": [
     "/bin",
     "/dist",
@@ -46,8 +46,8 @@
     "typescript": "^4.9.5"
   },
   "oclif": {
-    "bin": "regina",
-    "dirname": "regina",
+    "bin": "agenor",
+    "dirname": "agenor",
     "commands": "./dist/commands",
     "topicSeparator": " ",
     "topics": {}
@@ -64,11 +64,11 @@
   "engines": {
     "node": ">=12.0.0"
   },
-  "bugs": "https://github.com/davi-canuto/regina-cli/issues",
+  "bugs": "https://github.com/davi-canuto/agenor-cli/issues",
   "keywords": [
     "oclif",
     "portifolio",
-    "regina",
+    "agenor",
     "developer",
     "back-end",
     "backend"
