@@ -4,7 +4,7 @@ export default class Api {
   private static BASE_URL =
     process.env.NODE_ENV === 'development'
       ? 'http://localhost:3003'
-      : 'https://regina-web.vercel.app/'
+      : 'https://agenor-web.vercel.app/'
 
   private static instance: AxiosInstance
 
