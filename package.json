@@ -1,6 +1,6 @@
 {
   "name": "agenor",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Agenor CLI for creating portifolios to backend developers.",
   "author": "davi-canuto @davi-canuto",
   "bin": {
