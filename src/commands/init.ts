@@ -4,7 +4,7 @@ import select from '@inquirer/select'
 import { exec } from 'node:child_process'
 import * as fs from 'node:fs'
 export default class Init extends Command {
-  static description = 'Init JSON form to create your portifolio..'
+  static description = 'Init JSON form to create your portfolio.'
 
   static flags = {
     code: Flags.boolean({

@@ -20,7 +20,7 @@ export default class Preview extends Command {
         )
 
         response = await Api.put(
-          `/api/portifolio/${decryptedId}?preview=true`,
+          `/api/portfolio/${decryptedId}?preview=true`,
           JSON.parse(jsonData),
         ).then((res: any) => res)
 
@@ -28,13 +28,14 @@ export default class Preview extends Command {
           throw new Error('error in request')
         }
 
-        const portifolioUrl = getUrl(response?.data?._id, true)
+        console.log(response)
+        const portfolioUrl = getUrl(response?.data?._id, true)
 
         this.log('Your preview is successfully updated.')
-        this.log(`See results in ${portifolioUrl}`)
+        this.log(`See results in ${portfolioUrl}`)
       } else {
         response = await Api.post(
-          '/api/portifolio?preview=true',
+          '/api/portfolio?preview=true',
           JSON.parse(jsonData),
         ).then((res: any) => res)
 
@@ -44,7 +45,7 @@ export default class Preview extends Command {
 
         const data = response.data
 
-        const portifolioUrl = getUrl(data._id, true)
+        const portfolioUrl = getUrl(data._id, true)
 
         const currentDirectory = process.cwd()
 
@@ -57,11 +58,11 @@ export default class Preview extends Command {
         )
 
         this.log('Success in create your preview.')
-        this.log(`See results in ${portifolioUrl}`)
+        this.log(`See results in ${portfolioUrl}`)
       }
     } catch (error) {
       console.log(error)
-      throw new Error('error in create portifolio')
+      throw new Error('error in create portfolio')
     }
   }
 }

@@ -1,7 +1,7 @@
 {
   "name": "agenor",
   "version": "1.0.1",
-  "description": "Agenor CLI for creating portifolios to backend developers.",
+  "description": "Agenor CLI for creating portfolios to backend developers.",
   "author": "davi-canuto @davi-canuto",
   "bin": {
     "agenor": "./bin/run"
@@ -67,7 +67,7 @@
   "bugs": "https://github.com/davi-canuto/agenor-cli/issues",
   "keywords": [
     "oclif",
-    "portifolio",
+    "portfolio",
     "agenor",
     "developer",
     "back-end",

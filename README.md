@@ -38,7 +38,7 @@ USAGE
 
 ## `agenor init`
 
-Init JSON form to create your portifolio..
+Init JSON form to create your portfolio.
 
 ```
 USAGE
@@ -48,7 +48,7 @@ FLAGS
   --code  Open JSON directory with Visual Studio Code
 
 DESCRIPTION
-  Init JSON form to create your portifolio..
+  Init JSON form to create your portfolio.
 ```
 
 _See code: [dist/commands/init.ts](https://github.com/davi-canuto/agenor-cli/blob/v1.2.1/dist/commands/init.ts)_
@@ -69,14 +69,14 @@ _See code: [dist/commands/preview.ts](https://github.com/davi-canuto/agenor-cli/
 
 ## `agenor push`
 
-Push your current JSON to create portifolio.
+Push your current JSON to create portfolio.
 
 ```
 USAGE
   $ agenor push
 
 DESCRIPTION
-  Push your current JSON to create portifolio.
+  Push your current JSON to create portfolio.
 ```
 
 _See code: [dist/commands/push.ts](https://github.com/davi-canuto/agenor-cli/blob/v1.2.1/dist/commands/push.ts)_

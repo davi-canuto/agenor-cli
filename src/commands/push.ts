@@ -6,7 +6,7 @@ import * as fs from 'node:fs'
 import * as path from 'node:path'
 
 export default class Push extends Command {
-  static description = 'Push your current JSON to create portifolio.'
+  static description = 'Push your current JSON to create portfolio.'
 
   async run(): Promise<void> {
     try {
@@ -14,30 +14,32 @@ export default class Push extends Command {
       const existingBuffer = getBuffer(false)
       let response
 
-      const havePortifolio = await ux.confirm('You have a portifolio? (yes/no)')
+      const havePortfolio = await ux.confirm(
+        'You have a pushed portfolio? (yes/no)',
+      )
 
-      if (existingBuffer || havePortifolio) {
-        let portifolio
+      if (existingBuffer || havePortfolio) {
+        let portfolio
         if (existingBuffer) {
           const decryptedId = Buffer.from(existingBuffer, 'base64').toString(
             'utf8',
           )
 
-          portifolio = await Push.getPortifolio(decryptedId, null)
+          portfolio = await Push.getPortfolio(decryptedId, null)
           const inputedSecret = await ux.prompt('What is your secret?')
 
-          if (inputedSecret.trim() !== portifolio.data.userSecret.trim()) {
-            throw new Error('inputed secret is differ of portifolio secret')
+          if (inputedSecret.trim() !== portfolio.data.userSecret.trim()) {
+            throw new Error('inputed secret is differ of portfolio secret')
           }
         } else {
           const inputedSecret = await ux.prompt('What is your secret?')
 
-          portifolio = await Push.getPortifolio(null, inputedSecret)
+          portfolio = await Push.getPortfolio(null, inputedSecret)
         }
 
-        if (portifolio.data) {
+        if (portfolio.data) {
           const confirmUpdate = await ux.confirm(
-            'Do you want to update your current portifolio? (yes/no)',
+            'Do you want to update your current portfolio? (yes/no)',
           )
 
           if (!confirmUpdate) {
@@ -46,7 +48,7 @@ export default class Push extends Command {
           }
 
           response = await Api.put(
-            `/api/portifolio/${portifolio.data._id}?preview=false`,
+            `/api/portfolio/${portfolio.data._id}?preview=false`,
             JSON.parse(jsonData),
           ).then((res: any) => res)
 
@@ -54,14 +56,14 @@ export default class Push extends Command {
             throw new Error('error in request')
           }
 
-          this.log('Your portifolio is successfullly updated')
+          this.log('Your portfolio is successfullly updated')
           this.log(' ')
-          const portifolioUrl = getUrl(portifolio?.data?._id, false)
-          this.log(`See results in ${portifolioUrl}`)
+          const portfolioUrl = getUrl(portfolio?.data?._id, false)
+          this.log(`See results in ${portfolioUrl}`)
           return
         }
 
-        throw new Error('Portifolio not found')
+        throw new Error('Portfolio not found')
       }
 
       const confirmCreate = await ux.confirm(
@@ -74,7 +76,7 @@ export default class Push extends Command {
       }
 
       response = await Api.post(
-        '/api/portifolio?preview=false',
+        '/api/portfolio?preview=false',
         JSON.parse(jsonData),
       ).then((res: any) => res)
 
@@ -94,27 +96,27 @@ export default class Push extends Command {
       )
 
       this.log(
-        'Here is your secret, please keep guardin this. In future your need the secret for changes in your portifolio.',
+        'Here is your secret, please keep guardin this. In future your need the secret for changes in your portfolio.',
       )
       this.log(`SECRET: ${data.userSecret}`)
       this.log(' ')
-      const portifolioUrl = getUrl(data?._id, false)
-      this.log(`See results in ${portifolioUrl}`)
+      const portfolioUrl = getUrl(data?._id, false)
+      this.log(`See results in ${portfolioUrl}`)
     } catch (error) {
       console.log(error)
-      throw new Error('error in create portifolio')
+      throw new Error('error in create portfolio')
     }
   }
 
-  static async getPortifolio(portifolioId: any, secret: any) {
-    const portifolio = await (secret
-      ? Api.get(`/api/portifolio?preview=false&secret=${secret}`).then(
+  static async getPortfolio(portfolioId: any, secret: any) {
+    const portfolio = await (secret
+      ? Api.get(`/api/portfolio?preview=false&secret=${secret}`).then(
           (res: any) => res,
         )
-      : Api.get(`/api/portifolio/${portifolioId}?preview=false`).then(
+      : Api.get(`/api/portfolio/${portfolioId}?preview=false`).then(
           (res: any) => res,
         ))
 
-    return portifolio
+    return portfolio
   }
 }
