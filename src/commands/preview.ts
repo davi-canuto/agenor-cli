@@ -28,7 +28,6 @@ export default class Preview extends Command {
           throw new Error('error in request')
         }
 
-        console.log(response)
         const portfolioUrl = getUrl(response?.data?._id, true)
 
         this.log('Your preview is successfully updated.')
